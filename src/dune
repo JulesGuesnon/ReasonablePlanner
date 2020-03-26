@@ -1,0 +1,33 @@
+(library
+  (name App)
+  (wrapped false)
+  (libraries
+    Revery
+  )
+  (preprocess (pps brisk-reconciler.ppx))
+  (modules :standard \ AppExe)
+  (c_names color_picker main)
+  (c_flags :standard -Wall -Wextra -Werror -x objective-c)
+  (c_library_flags "-framework Foundation" "-framework Cocoa")
+)
+
+(executable
+  (package AppExe)
+  (name AppExe)
+  (js_of_ocaml (javascript_files stubs.js))
+  (public_name AppExe)
+  (libraries
+    App
+    Revery
+  )
+  (preprocess (pps brisk-reconciler.ppx))
+  (modules AppExe)
+)
+
+(install
+  (section bin)
+  (package AppJs)
+  (files AppExe.bc.js)
+)
+
+(include_subdirs unqualified)
