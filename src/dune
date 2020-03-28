@@ -3,6 +3,7 @@
   (wrapped false)
   (libraries
     Revery
+    LightRouter
   )
   (preprocess (pps brisk-reconciler.ppx))
   (modules :standard \ AppExe)

@@ -3,10 +3,13 @@ open Revery.UI;
 
 type icon =
   | Home
-  | Settings;
+  | Gear
+  | Nav;
 
-let make = (~icon, ~width, ~height, ()) =>
+let make = (~icon, ~width, ~height, ~opacity=1.0, ()) => {
   switch (icon) {
-  | Home => <Image src="./home-outline.png" width height />
-  | Settings => <Image src="./settings-2-outline.png" width height />
+  | Home => <Image src="home-outline.png" width height opacity />
+  | Gear => <Image src="settings-2-outline.png" width height opacity />
+  | Nav => <Image src="nav.png" width height opacity />
   };
+};

@@ -1,4 +1,4 @@
 (install
     (section bin)
     (package AppExe)
-    (files Roboto-Regular.ttf home-outline.png settings-2-outline.png))
+    (files Roboto-Regular.ttf home-outline.png settings-2-outline.png nav.png))

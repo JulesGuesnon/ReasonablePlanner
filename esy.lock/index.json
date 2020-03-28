@@ -1,6 +1,6 @@
 {
-  "checksum": "fb2db6ba48abad732d23f2a1437dd464",
-  "root": "revery-quick-start@link-dev:./package.json",
+  "checksum": "c7b16c24eeb821a8eecc7d57fffbc44c",
+  "root": "reasonable-planner@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
       "id":
@@ -90,40 +90,24 @@
       "dependencies": [ "@opam/dune@opam:2.4.0@639d28a3" ],
       "devDependencies": []
     },
-    "revery-quick-start@link-dev:./package.json": {
-      "id": "revery-quick-start@link-dev:./package.json",
-      "name": "revery-quick-start",
-      "version": "link-dev:./package.json",
-      "source": {
-        "type": "link-dev",
-        "path": ".",
-        "manifest": "package.json"
-      },
-      "overrides": [],
-      "dependencies": [
-        "timber@1.0.0@d41d8cd9",
-        "revery@github:revery-ui/revery#1196f1b@d41d8cd9",
-        "@opam/dune@opam:2.4.0@639d28a3",
-        "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9"
-      ],
-      "devDependencies": [
-        "ocaml@4.8.1000@d41d8cd9", "@opam/merlin@opam:3.3.3@d653b06a"
-      ]
-    },
-    "revery@github:revery-ui/revery#1196f1b@d41d8cd9": {
-      "id": "revery@github:revery-ui/revery#1196f1b@d41d8cd9",
+    "revery@github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf@d41d8cd9": {
+      "id":
+        "revery@github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf@d41d8cd9",
       "name": "revery",
-      "version": "github:revery-ui/revery#1196f1b",
+      "version":
+        "github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/revery#1196f1b" ]
+        "source": [
+          "github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf"
+        ]
       },
       "overrides": [],
       "dependencies": [
         "revery-text-wrap@github:revery-ui/revery-text-wrap#966383e@d41d8cd9",
         "reperf@1.5.0@d41d8cd9", "rench@1.9.1@d41d8cd9",
         "rebez@github:jchavarri/rebez#03fa3b7@d41d8cd9",
-        "reason-skia@github:revery-ui/reason-skia#cc3cfa8@d41d8cd9",
+        "reason-skia@github:julesguesnon/reason-skia#7e66aebb6d55c61be401e82f2870c422e8e4cde0@d41d8cd9",
         "reason-sdl2@2.10.3020@d41d8cd9",
         "reason-harfbuzz@1.91.8000@d41d8cd9",
         "reason-font-manager@2.1.1@d41d8cd9", "flex@1.2.3@d41d8cd9",
@@ -227,13 +211,37 @@
       ],
       "devDependencies": []
     },
-    "reason-skia@github:revery-ui/reason-skia#cc3cfa8@d41d8cd9": {
-      "id": "reason-skia@github:revery-ui/reason-skia#cc3cfa8@d41d8cd9",
+    "reasonable-planner@link-dev:./package.json": {
+      "id": "reasonable-planner@link-dev:./package.json",
+      "name": "reasonable-planner",
+      "version": "link-dev:./package.json",
+      "source": {
+        "type": "link-dev",
+        "path": ".",
+        "manifest": "package.json"
+      },
+      "overrides": [],
+      "dependencies": [
+        "timber@1.0.0@d41d8cd9",
+        "revery@github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf@d41d8cd9",
+        "re-light-router@0.1.1@d41d8cd9", "@opam/dune@opam:2.4.0@639d28a3",
+        "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.8.1000@d41d8cd9", "@opam/merlin@opam:3.3.3@d653b06a"
+      ]
+    },
+    "reason-skia@github:julesguesnon/reason-skia#7e66aebb6d55c61be401e82f2870c422e8e4cde0@d41d8cd9": {
+      "id":
+        "reason-skia@github:julesguesnon/reason-skia#7e66aebb6d55c61be401e82f2870c422e8e4cde0@d41d8cd9",
       "name": "reason-skia",
-      "version": "github:revery-ui/reason-skia#cc3cfa8",
+      "version":
+        "github:julesguesnon/reason-skia#7e66aebb6d55c61be401e82f2870c422e8e4cde0",
       "source": {
         "type": "install",
-        "source": [ "github:revery-ui/reason-skia#cc3cfa8" ]
+        "source": [
+          "github:julesguesnon/reason-skia#7e66aebb6d55c61be401e82f2870c422e8e4cde0"
+        ]
       },
       "overrides": [],
       "dependencies": [
@@ -316,6 +324,24 @@
       "dependencies": [
         "@opam/dune-configurator@opam:2.4.0@6976bb12",
         "@opam/dune@opam:2.4.0@639d28a3", "@esy-ocaml/reason@3.5.2@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "re-light-router@0.1.1@d41d8cd9": {
+      "id": "re-light-router@0.1.1@d41d8cd9",
+      "name": "re-light-router",
+      "version": "0.1.1",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/re-light-router/-/re-light-router-0.1.1.tgz#sha1:dc2372f4e47ddbfb3529dc1d48e042a9880a9584"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "revery@github:julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf@d41d8cd9",
+        "@opam/dune@opam:2.4.0@639d28a3",
+        "@esy-ocaml/libffi@github:esy-ocaml/libffi#c61127d@d41d8cd9"
       ],
       "devDependencies": []
     },
