@@ -1,6 +1,8 @@
 open Revery;
 open Revery.UI;
 
+let topBarHeight = 100;
+
 let%component make = () => {
   let%hook (_, name) = Router.useRoute();
   let%hook (navOpen, setNavOpen) = Hooks.state(false);
@@ -16,14 +18,14 @@ let%component make = () => {
     <Router
       style=Style.[
         position(`Absolute),
-        left(60),
-        top(60),
-        bottom(0),
-        right(0),
+        left(100),
+        top(topBarHeight),
+        bottom(20),
+        right(20),
       ]
       render={route =>
         switch (route) {
-        | Home => <Index />
+        | Home => <Planner />
         | Settings => <Settings />
         }
       }
@@ -31,19 +33,21 @@ let%component make = () => {
     <View
       style=Style.[
         position(`Absolute),
-        left(60),
+        left(90),
         top(0),
         right(0),
-        height(60),
+        height(100),
         padding2(10, 5),
-        backgroundColor(Colors.red),
+        flexDirection(`Row),
+        alignItems(`Center),
       ]>
       <NavButton onClick={() => {setNavOpen(_ => true)}} />
       <Text
         style=Style.[
           fontFamily("Roboto-Regular.ttf"),
-          fontSize(50.),
+          fontSize(20.),
           color(Colors.black),
+          marginLeft(16),
         ]
         text=name
       />

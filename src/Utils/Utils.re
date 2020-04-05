@@ -5,6 +5,7 @@ module Date = Utils_Date;
 module Window = Utils_Window;
 module String = Utils_String;
 module Int = Utils_Int;
+module Format = Utils_Format;
 
 module Operands = {
   open Date.Operands;

@@ -1,6 +1,29 @@
 open Revery;
 open Revery.UI;
-open NavItemStyle;
+
+module Styles = {
+  let root = (~isActive, ~hasMargin, ~xOffset, ~yOffset, ~blurRadius) =>
+    Style.[
+      width(40),
+      height(40),
+      flexDirection(`Row),
+      alignItems(`Center),
+      borderRadius(3.),
+      justifyContent(`Center),
+      alignItems(`Center),
+      backgroundColor(
+        if (isActive) {Colors.white} else {Theme.Colors.background},
+      ),
+      marginTop(if (hasMargin) {20} else {0}),
+      boxShadow(
+        ~xOffset,
+        ~yOffset,
+        ~blurRadius,
+        ~spreadRadius=0.,
+        ~color=Theme.Colors.lightGray,
+      ),
+    ];
+};
 
 let cap = (cap, value) =>
   if (value >= cap) {
@@ -33,7 +56,7 @@ let%component make =
 
   <Router.RouterLink
     to_
-    style={rootStyleFromProps(
+    style={Styles.root(
       ~isActive,
       ~hasMargin,
       ~xOffset=transitionValue *. 2.,

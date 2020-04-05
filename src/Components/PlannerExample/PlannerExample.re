@@ -1,6 +1,6 @@
 open Revery;
 open Revery.UI;
-open PlannerStyle;
+open PlannerExampleStyle;
 /* open GlobalState.Date.Types; */
 
 type mouse = {
@@ -115,9 +115,8 @@ let%component make = () => {
                 ),
               );
             }
-          }>
-          <Days dayWidth />
-        </View>
+          }
+        />
       </View>
     </View>
   </View>;

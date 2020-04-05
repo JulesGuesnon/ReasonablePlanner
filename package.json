@@ -1,41 +1,59 @@
 {
-  "name": "reasonable-planner",
-  "version": "1.3.0",
-  "description": "Revery quickstart",
-  "license": "MIT",
-  "scripts": {
-    "format": "bash -c \"refmt --in-place *.re\"",
-    "run": "esy x AppExe"
-  },
-  "esy": {
-    "build": "refmterr dune build -p AppExe",
-    "buildsInSource": "_build",
-    "install": [ "esy-installer AppExe.install" ]
-  },
-  "revery-packager": {
-    "bundleName": "ExampleApp",
-    "bundleId": "com.example.app",
-    "displayName": "Revery Example App",
-    "mainExecutable": "AppExe",
-    "windows": { "packages": [ "zip" ], "iconFile": "assets/icon.ico" },
-    "darwin": {
-      "packages": [ "tar", "dmg" ],
-      "iconFile": "assets/icon.icns"
+    "name": "reasonable-planner",
+    "version": "1.3.0",
+    "description": "Revery quickstart",
+    "license": "MIT",
+    "scripts": {
+        "format": "bash -c \"refmt --in-place *.re\"",
+        "run": "esy x AppExe"
     },
-    "linux": { "packages": [ "tar", "appimage" ] }
-  },
-  "dependencies": {
-    "@esy-ocaml/libffi": "3.2.10",
-    "@opam/dune": "*",
-    "re-light-router": "^0.1.1",
-    "revery": "0.30.0",
-    "timber": "1.0.0"
-  },
-  "resolutions": {
-    "@opam/cmdliner": "1.0.2",
-    "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
-    "revery": "julesguesnon/revery#92da7074a5d670428edff6b93746f25b76e229cf",
-    "@esy-ocaml/libffi": "esy-ocaml/libffi#c61127d"
-  },
-  "devDependencies": { "ocaml": "~4.8.0", "@opam/merlin": "*" }
+    "esy": {
+        "build": "refmterr dune build -p AppExe",
+        "buildsInSource": "_build",
+        "install": [
+            "esy-installer AppExe.install"
+        ]
+    },
+    "revery-packager": {
+        "bundleName": "ExampleApp",
+        "bundleId": "com.example.app",
+        "displayName": "Revery Example App",
+        "mainExecutable": "AppExe",
+        "windows": {
+            "packages": [
+                "zip"
+            ],
+            "iconFile": "assets/icon.ico"
+        },
+        "darwin": {
+            "packages": [
+                "tar",
+                "dmg"
+            ],
+            "iconFile": "assets/icon.icns"
+        },
+        "linux": {
+            "packages": [
+                "tar",
+                "appimage"
+            ]
+        }
+    },
+    "dependencies": {
+        "@esy-ocaml/libffi": "3.2.10",
+        "@opam/dune": "*",
+        "re-light-router": "^0.1.3",
+        "revery": "0.30.0",
+        "timber": "1.0.0"
+    },
+    "resolutions": {
+        "@opam/cmdliner": "1.0.2",
+        "esy-cmake": "prometheansacrifice/esy-cmake#2a47392def755",
+        "revery": "revery-ui/revery#3c233048c39451a900a4f6b9a05090c43211a9f2",
+        "@esy-ocaml/libffi": "esy-ocaml/libffi#c61127d"
+    },
+    "devDependencies": {
+        "ocaml": "~4.8.0",
+        "@opam/merlin": "*"
+    }
 }

@@ -174,6 +174,22 @@ let getWeekFromDay = (~day) => {
     };
   } else {
     for (i in 1 to day.wDay - 1) {
+      week := week^ @ [getRelativeDay(~day, ~gap=(day.wDay - i) * (-1))];
+    };
+
+    week := List.append(week^, [day]);
+
+    for (i in day.wDay + 1 to 7) {
+      week := week^ @ [getRelativeDay(~day, ~gap=i - day.wDay)];
+    };
+  };
+
+  week^;
+};
+
+/**
+ * Normal case
+ * for (i in 1 to day.wDay - 1) {
       week := [getRelativeDay(~day, ~gap=(day.wDay - i) * (-1))] @ week^;
     };
 
@@ -182,7 +198,4 @@ let getWeekFromDay = (~day) => {
     for (i in day.wDay + 1 to 7) {
       week := [getRelativeDay(~day, ~gap=i - day.wDay)] @ week^;
     };
-  };
-
-  week^;
-};
+ */;

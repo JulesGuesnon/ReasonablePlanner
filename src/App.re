@@ -9,7 +9,7 @@ let init = app => {
   NativeBindings.setup();
   let win = App.createWindow(app, "ReasonnablePlanner");
 
-  Window.setBackgroundColor(win, Theme.Color.background);
+  Window.setBackgroundColor(win, Theme.Colors.background);
   Window.maximize(win);
 
   GlobalState.dispatch(

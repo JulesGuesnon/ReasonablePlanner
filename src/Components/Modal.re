@@ -28,15 +28,19 @@ let%component make =
       },
     );
 
-  switch (onClick) {
-  | Some(onClick) =>
-    <Components.Clickable
-      style=Style.[`Opacity(transitionOpacity), ...style] onClick>
-      children
-    </Components.Clickable>
-  | None =>
-    <View style=Style.[`Opacity(transitionOpacity), ...style]>
-      children
-    </View>
+  if (!isVisible) {
+    <View />;
+  } else {
+    switch (onClick) {
+    | Some(onClick) =>
+      <Components.Clickable
+        style=Style.[`Opacity(transitionOpacity), ...style] onClick>
+        children
+      </Components.Clickable>
+    | None =>
+      <View style=Style.[`Opacity(transitionOpacity), ...style]>
+        children
+      </View>
+    };
   };
 };
