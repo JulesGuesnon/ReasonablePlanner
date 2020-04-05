@@ -1,23 +1,13 @@
 open Revery;
 open Revery.UI;
 
-let hours =
-  Utils.range(0, 25)
-  |> List.mapi((i, h) =>
-       if (i == 24) {
-         0;
-       } else {
-         h;
-       }
-     );
-
 module Styles = {
   let root =
     Style.[
       position(`Absolute),
       left(0),
       right(0),
-      top(0),
+      top(Theme.Sizes.calendarTopBarHeight),
       bottom(0),
       backgroundColor(Theme.Colors.white),
       boxShadow(
@@ -41,6 +31,16 @@ module Styles = {
       flexDirection(`Row),
     ];
 };
+
+let hours =
+  Utils.range(0, 25)
+  |> List.mapi((i, h) =>
+       if (i == 24) {
+         0;
+       } else {
+         h;
+       }
+     );
 
 type mouse = {
   x: float,

@@ -204,3 +204,18 @@ let getWeekFromDay = (~day) => {
       week := [getRelativeDay(~day, ~gap=i - day.wDay)] @ week^;
     };
  */;
+
+let monthsOfWeek = week => {
+  let months = ref([]);
+
+  week
+  |> List.iter(day => {
+       let month = monthFromMon(day.month);
+       let monthExist = months^ |> List.exists(m => m == month);
+       if (!monthExist) {
+         months := months^ @ [month];
+       };
+     });
+
+  months^;
+};

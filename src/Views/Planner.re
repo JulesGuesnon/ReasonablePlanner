@@ -25,5 +25,9 @@ let make = () => {
            },
          ]
        );
-  <Calendar week tasks />;
+
+  <View style=Utils.Style.fullSize>
+    <CalendarController />
+    <Calendar week tasks />
+  </View>;
 };

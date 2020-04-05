@@ -16,4 +16,6 @@ module Sizes = {
   let hourFontSize = 14.;
 
   let minimumDayWidth = 200;
+
+  let calendarTopBarHeight = 50;
 };
