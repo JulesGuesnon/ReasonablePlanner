@@ -1,13 +1,23 @@
 open Revery;
 open Revery.UI;
 
-open ColorPickerStyle;
+module Styles = {
+  let root = (~bgColor) =>
+    Style.[
+      width(75),
+      height(30),
+      borderRadius(3.),
+      border(~color=Colors.black, ~width=2),
+      backgroundColor(bgColor |> Color.hex),
+      marginTop(10),
+      marginBottom(10),
+    ];
+};
 
 let%component make = () => {
-  let%hook (color, setColor) = Hooks.state("#FFF");
   let%hook (hasColorPicker, setHasColorPicker) = Hooks.state(false);
 
-  GlobalState.subscribe(state => {setColor(_ => state.colorPickerValue)});
+  let%hook (state, _) = GlobalState.useState();
 
   <Components.Clickable
     onClick={_ =>
@@ -19,7 +29,7 @@ let%component make = () => {
         setHasColorPicker(_ => true);
       }
     }>
-    <View style={root(color)}>
+    <View style={Styles.root(~bgColor=state.colorPickerValue)}>
       <Text
         text=""
         style=Style.[

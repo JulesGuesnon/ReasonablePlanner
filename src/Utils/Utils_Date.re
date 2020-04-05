@@ -69,7 +69,12 @@ let getNumberOfDaysInAMonth = month => {
   };
 };
 
-let getRelativeWDay = (~wDay, ~gap) => (wDay + gap) % 7;
+let getRelativeWDay = (~wDay, ~gap) =>
+  if (gap >= 0) {
+    (wDay + gap) % 7;
+  } else {
+    7 + gap;
+  };
 
 let getFixedRelativeMonth = month =>
   if (month <= 0) {
@@ -162,10 +167,10 @@ let getRelativeDay = (~day, ~gap) => {
 let getWeekFromDay = (~day) => {
   let week = ref([]);
 
-  if (day.wDay == 7) {
+  if (day.wDay == 0) {
     week := [day];
     for (i in 1 to 6) {
-      week := [getRelativeDay(~day, ~gap=i * (-1)), ...week^];
+      week := [getRelativeDay(~day, ~gap=- i), ...week^];
     };
   } else if (day.wDay == 1) {
     week := [day];

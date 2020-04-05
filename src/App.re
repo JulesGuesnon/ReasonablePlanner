@@ -12,7 +12,7 @@ let init = app => {
   Window.setBackgroundColor(win, Theme.Colors.background);
   Window.maximize(win);
 
-  GlobalState.dispatch(
+  GlobalState.Store.dispatch(
     Init({
       year: 2019,
       week: Utils.Date.getWeekFromDay(~day=Utils.Date.getCurrentDay()),
@@ -20,8 +20,7 @@ let init = app => {
       tasks: [],
       colorPickerValue: "#FFF",
     }),
-  )
-  |> ignore;
+  );
 
   let _: Revery.UI.renderFunction = UI.start(win, <Kernel />);
   ();

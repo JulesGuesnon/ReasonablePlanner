@@ -123,7 +123,7 @@ let%component make = (~week, ~tasks, ()) => {
             (- Theme.Sizes.hourHeight |> float_of_int)
             *. (25. -. visibleHourCount)
             +. float_of_int(Theme.Sizes.hourHeight)
-            -. (Theme.Sizes.hourFontSize +. 30.);
+            -. (Theme.Sizes.hourFontSize +. 60.);
 
           if (newValue > 0.) {
             0.;
@@ -166,7 +166,7 @@ let%component make = (~week, ~tasks, ()) => {
         ~scrollTop=int_of_float(scrollTop),
       )}
       onMouseWheel={({deltaX as x, deltaY as y}) => {
-        update(~delta={x: -. x *. 3., y: y *. 3.})
+        update(~delta={x: -. x *. 4., y: y *. 4.})
       }}
       onMouseDown={e => {
         dispatch(MouseIsDown);
