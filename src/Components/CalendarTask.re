@@ -1,6 +1,6 @@
 open Revery;
 open Revery.UI;
-open GlobalState.Task.Types;
+open Types.Task;
 
 module Styles = {
   let paddingL = 3;

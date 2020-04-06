@@ -1,11 +1,11 @@
 open Revery;
 open Revery.UI;
-open GlobalState.Task.Types;
+open Types.Task;
 
-let make = () => {
-  let week = Utils.Date.getWeekFromDay(~day=Utils.Date.getCurrentDay());
+let%component make = () => {
+  let%hook (state, _) = GlobalState.useState();
   let tasks =
-    week
+    state.week
     |> List.mapi((i, day) =>
          [
            {
@@ -28,6 +28,6 @@ let make = () => {
 
   <View style=Utils.Style.fullSize>
     <CalendarController />
-    <Calendar week tasks />
+    <Calendar week={state.week} tasks />
   </View>;
 };

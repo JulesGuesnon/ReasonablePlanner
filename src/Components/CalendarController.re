@@ -11,9 +11,40 @@ module Styles = {
       height(Theme.Sizes.calendarTopBarHeight),
       justifyContent(`Center),
       alignItems(`Center),
+      flexDirection(`Row),
     ];
 
-  let text = Utils.Style.textStyleFromFontSize(16.);
+  let textMargin = 10;
+  let text =
+    Style.[
+      marginRight(textMargin),
+      marginLeft(textMargin),
+      ...Utils.Style.textStyleFromFontSize(16.),
+    ];
+};
+
+module Arrow = {
+  module Styles = {
+    let text = Utils.Style.textStyleFromFontSize(16.);
+  };
+
+  type side =
+    | Right
+    | Left;
+
+  let make = (~side, ~onClick, ()) => {
+    <Components.Clickable onClick>
+      <Text
+        style=Styles.text
+        text={
+          switch (side) {
+          | Right => ">"
+          | Left => "<"
+          }
+        }
+      />
+    </Components.Clickable>;
+  };
 };
 
 let%component make = () => {
@@ -28,5 +59,9 @@ let%component make = () => {
     ++ ", "
     ++ string_of_int(state.year);
 
-  <View style=Styles.root> <Text style=Styles.text text /> </View>;
+  <View style=Styles.root>
+    <Arrow side=Left onClick={_ => dispatch(PreviousWeek)} />
+    <Text style=Styles.text text />
+    <Arrow side=Right onClick={_ => dispatch(NextWeek)} />
+  </View>;
 };

@@ -1,10 +1,11 @@
 open Revery;
 open Revery.UI;
-open GlobalState.Date.Types;
+open Types.Date;
 
+Engine.getWeekOfDay(~day=Engine.getCurrentDay());
 let init = app => {
-  Timber.App.enable();
-  Timber.App.setLevel(Timber.Level.perf);
+  /*Timber.App.enable();
+    Timber.App.setLevel(Timber.Level.perf);*/
 
   NativeBindings.setup();
   let win = App.createWindow(app, "ReasonnablePlanner");
@@ -15,7 +16,7 @@ let init = app => {
   GlobalState.Store.dispatch(
     Init({
       year: 2019,
-      week: Utils.Date.getWeekFromDay(~day=Utils.Date.getCurrentDay()),
+      week: Engine.getWeekOfDay(~day=Engine.getCurrentDay()),
       window: Some(win),
       tasks: [],
       colorPickerValue: "#FFF",

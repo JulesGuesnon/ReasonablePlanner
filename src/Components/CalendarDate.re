@@ -1,6 +1,6 @@
 open Revery;
 open Revery.UI;
-open GlobalState.Date.Types;
+open Types.Date;
 
 module Styles = {
   let root = (~width as w) =>
@@ -19,7 +19,7 @@ let make = (~day, ~width, ()) => {
   <View style={Styles.root(~width)}>
     <Text
       style=Styles.text
-      text={day.wDay |> Utils.Date.weekDayFromWDay |> Utils.Format.day}
+      text={day.wDay |> Engine.Conversion.wDayToString |> Utils.Format.day}
     />
     <Text style=Styles.text text={day.day |> Utils.Format.date} />
   </View>;

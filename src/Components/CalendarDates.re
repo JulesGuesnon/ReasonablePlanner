@@ -1,6 +1,6 @@
 open Revery;
 open Revery.UI;
-open GlobalState.Date.Types;
+open Types.Date;
 
 module Styles = {
   let root = (~scrollLeft) =>
