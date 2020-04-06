@@ -1,13 +1,12 @@
 open Revery.UI;
 
-module Date = GlobalState_Date;
-module Task = GlobalState_Task;
+module Helpers = GlobalState_Helpers;
 
 module Store = {
   type state = {
     year: int,
-    week: Date.Types.week,
-    tasks: Task.Types.tasks,
+    week: Types.Date.week,
+    tasks: Types.Task.tasks,
     window: option(Revery.Window.t),
     colorPickerValue: string,
   };
@@ -16,8 +15,10 @@ module Store = {
     | Init(state)
     | Year(int)
     | Window(option(Revery.Window.t))
-    | AddTask(Task.Types.task)
-    | ColorChanged(string);
+    | AddTask(Types.Task.task)
+    | ColorChanged(string)
+    | PreviousWeek
+    | NextWeek;
 
   let subscriptions = ref([]);
 
@@ -41,6 +42,18 @@ module Store = {
     | Window(window) => setState({...state^, window})
     | AddTask(task) => setState({...state^, tasks: state^.tasks @ [task]})
     | ColorChanged(color) => setState({...state^, colorPickerValue: color})
+    | PreviousWeek =>
+      let week =
+        Engine.getWeekOfDay(
+          ~day=Engine.getRelativeDay(~day=List.nth(state^.week, 0), ~gap=-1),
+        );
+      setState({...state^, week});
+    | NextWeek =>
+      let week =
+        Engine.getWeekOfDay(
+          ~day=Engine.getRelativeDay(~day=List.nth(state^.week, 6), ~gap=1),
+        );
+      setState({...state^, week});
     };
 
     List.iter(subscription => subscription(state^), subscriptions^);
